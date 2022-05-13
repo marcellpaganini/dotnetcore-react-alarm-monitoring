@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
-import { Alarms } from './Components/Alarms';
+//import { Alarms } from './Components/Alarms';
 import './App.css';
 
 const App: FC = () => {
   return (
     <div className="app">
       <h3>Telecom Remote Monitoring 📡</h3>
-      <Alarms 
+      {/* <Alarms 
         id={12345} 
         name="ADM5566" 
         severity='Major' 
@@ -14,7 +14,7 @@ const App: FC = () => {
         vendor='Company1'
         alarmClass="Radio Frequency"
         duration={2}  
-      />
+      /> */}
     </div>
   );
 }
