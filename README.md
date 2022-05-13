@@ -31,7 +31,7 @@
   ```   
 
 ### React Topics practiced to get things done  
-- **
+- Function components with TypeScript
 
 ### Project idea taken from:  
 ![alt text](https://www.ttgint.com/wp-content/uploads/2021/06/3-1.png)
