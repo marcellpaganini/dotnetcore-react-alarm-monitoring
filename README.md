@@ -16,7 +16,7 @@
   ``` 
   * Create React App  
   ```bash
-  npx create-react-app .
+  npx create-react-app . --template typescript
   ```   
   * Delete all files in the src/ folder  
   * Add index.js  
