@@ -37,6 +37,8 @@
 ![alt text](https://www.ttgint.com/wp-content/uploads/2021/06/3-1.png)
 
 ### Error messages for future reference
+❌Type 'Date' is not assignable to type 'ReactNode'.   
+**Solution** ...   
 ✖Exception has occurred: TypeError: Cannot read properties of undefined (reading 'length')  
 **Solution** Initialize array state properly. Array wasn't defined in React  
 ✖React Hook useEffect has a missing dependency: 'props.orders'. Either include it or remove the dependency array.  
