@@ -1,0 +1,122 @@
+[
+    {
+        "severity": 1,
+        "probableCause": "Degraded Signal",
+        "vendor": "TelcoX",
+        "alarmClass": 0
+    },
+    {
+        "severity": 2,
+        "probableCause": "Alarm Indication Signal",
+        "vendor": "TelcoX",
+        "alarmClass": 0
+    },
+    {
+        "severity": 3,
+        "probableCause": "Node Isolation",
+        "vendor": "SignalY",
+        "alarmClass": 0
+    },
+    {
+        "severity": 2,
+        "probableCause": "Loss of Signal",
+        "vendor": "TelcoX",
+        "alarmClass": 0
+    },
+    {
+        "severity": 2,
+        "probableCause": "Server Signal Failure",
+        "vendor": "TelcoX",
+        "alarmClass": 0
+    },
+    {
+        "severity": 3,
+        "probableCause": "RBS Out of Service",
+        "vendor": "TelcoX",
+        "alarmClass": 0
+    },
+    {
+        "severity": 3,
+        "probableCause": "AC Failure",
+        "vendor": "FiberZ",
+        "alarmClass": 1
+    },
+    {
+        "severity": 3,
+        "probableCause": "Security Sensor",
+        "vendor": "FiberZ",
+        "alarmClass": 1
+    },
+    {
+        "severity": 3,
+        "probableCause": "Call Test Failure",
+        "vendor": "SignalY",
+        "alarmClass": 0
+    },
+    {
+        "severity": 2,
+        "probableCause": "Ping Test Failed",
+        "vendor": "FiberZ",
+        "alarmClass": 0
+    },
+    {
+        "severity": 3,
+        "probableCause": "Download Test Failed",
+        "vendor": "TelcoX",
+        "alarmClass": 0
+    },
+    {
+        "severity": 2,
+        "probableCause": "SMS Test Failed",
+        "vendor": "TelcoX",
+        "alarmClass": 0
+    },
+    {
+        "severity": 3,
+        "probableCause": "Upload Test Tailed",
+        "vendor": "FiberZ",
+        "alarmClass": 0
+    },
+    {
+        "severity": 2,
+        "probableCause": "Locker Failure",
+        "vendor": "SignalY",
+        "alarmClass": 1
+    },
+    {
+        "severity": 0,
+        "probableCause": "General Failure",
+        "vendor": "TelcoX",
+        "alarmClass": 0
+    },
+    {
+        "severity": 1,
+        "probableCause": "Sensor Failure",
+        "vendor": "FiberZ",
+        "alarmClass": 1
+    },
+    {
+        "severity": 2,
+        "probableCause": "Rectifier Failure",
+        "vendor": "TelcoX",
+        "alarmClass": 0
+    },
+    {
+        "severity": 3,
+        "probableCause": "Authorization Failure",
+        "vendor": "FiberZ",
+        "alarmClass": 0
+    },
+    {
+        "severity": 1,
+        "probableCause": "IP Fallback",
+        "vendor": "SignalY",
+        "alarmClass": 0
+    },
+    {
+        "severity": 3,
+        "probableCause": "Functionality license expired",
+        "vendor": "SignalY",
+        "alarmClass": 0
+    }
+]
