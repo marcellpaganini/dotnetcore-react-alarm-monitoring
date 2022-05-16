@@ -1,8 +1,7 @@
-import uuid from 'uuid';
 import { IAlarmInfo } from "./IAlarmInfo";
 
 export interface IAlarm {
-    id: uuid.V4Options;
+    id: string;
     name: string;
     alarmInfo: IAlarmInfo;
     firstReceiveDate: Date;

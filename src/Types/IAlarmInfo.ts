@@ -1,6 +1,6 @@
 export interface IAlarmInfo {
-    severity: string;
+    severity: number;
     probableCause: string;
     vendor: string;
-    alarmClass: string;
+    alarmClass: number;
 }
