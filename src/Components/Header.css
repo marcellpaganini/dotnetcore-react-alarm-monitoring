@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 3em;
+}
+
+.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 3em;
+}
+
+.active span {
+    font-weight: 500;
+}
+
+.activeCount {
+    border: 0.15em solid black;
+    width: 100%;
+    border-radius: 0.20em;
+    background-color: lightgray;
+    font-family: 'Orbitron', sans-serif;
+}
