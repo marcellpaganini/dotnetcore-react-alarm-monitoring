@@ -1,0 +1,43 @@
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+th {
+    border: 2px solid black;
+    padding: 0.3em;
+    margin: 0px;
+    overflow: auto;
+    background-color: rgb(61, 60, 60);
+    color: white;
+}
+
+td {
+    border: solid 1px;
+    width: auto;
+    height: auto;
+    min-height: 20px;
+    min-width: 20px;
+    font-weight: 600;
+    font-size: small;
+}
+
+.warning {
+    background-color: white;
+    opacity: 0.7;
+}
+
+.minor {
+    background-color: yellow;
+    opacity: 0.7;
+}
+
+.major {
+    background-color: orange;
+    opacity: 0.7;
+}
+
+.critical {
+    background-color: red;
+    opacity: 0.7;
+}
