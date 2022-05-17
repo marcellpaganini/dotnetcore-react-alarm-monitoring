@@ -5,6 +5,6 @@ export interface IAlarm {
     name: string;
     alarmInfo: IAlarmInfo;
     firstReceiveDate: Date;
-    clearedDate: Date;
+    clearedDate: Date | null;
     duration: number;
 } 

@@ -1,15 +1,9 @@
 import { FC } from 'react';
 import { IAlarm } from '../Types/IAlarm';
+import { Severity, AlarmClass } from '../Types/Enums';
 
 
-export const Alarms: FC<IAlarm> = ({ 
-    id,
-    name,
-    alarmInfo,
-    firstReceiveDate,
-    clearedDate,
-    duration }) => {
-    
+export const Alarms: FC<{alarms: IAlarm[]}> = (props) => {
     return (
         <table>
             <thead>
@@ -44,35 +38,37 @@ export const Alarms: FC<IAlarm> = ({
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        {id}
-                    </td>
-                    <td>
-                        {name}
-                    </td>
-                    <td>
-                        {alarmInfo.severity}
-                    </td>
-                    <td>
-                        {alarmInfo.probableCause}
-                    </td>
-                    <td>
-                        {firstReceiveDate.toUTCString()}
-                    </td>
-                    <td>
-                        {clearedDate.toUTCString()}
-                    </td>
-                    <td>
-                        {alarmInfo.vendor}
-                    </td>
-                    <td>
-                        {alarmInfo.alarmClass}
-                    </td>
-                    <td>
-                        {duration}
-                    </td>
-                </tr>
+                {props.alarms.map((alarm: IAlarm) => {
+                    return <tr key={alarm.id}>
+                                <td>
+                                    {alarm.id}
+                                </td>
+                                <td>
+                                    {alarm.name}
+                                </td>
+                                <td>
+                                    {Severity[alarm.alarmInfo.severity]}
+                                </td>
+                                <td>
+                                    {alarm.alarmInfo.probableCause}
+                                </td>
+                                <td>
+                                    {alarm.firstReceiveDate.toUTCString()}
+                                </td>
+                                <td>
+                                    {alarm.clearedDate?.toUTCString() ?? ""}
+                                </td>
+                                <td>
+                                    {alarm.alarmInfo.vendor}
+                                </td>
+                                <td>
+                                    {AlarmClass[alarm.alarmInfo.alarmClass]}
+                                </td>
+                                <td>
+                                    {alarm.duration}
+                                </td>
+                            </tr>
+                })}
             </tbody>
         </table>
     );
