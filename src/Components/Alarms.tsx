@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { IAlarm } from '../Types/IAlarm';
 import { Severity, AlarmClass } from '../Types/Enums';
+import './Alarms.css';
 
 
 export const Alarms: FC<{alarms: IAlarm[]}> = (props) => {
@@ -12,7 +13,7 @@ export const Alarms: FC<{alarms: IAlarm[]}> = (props) => {
                         ID
                     </th>
                     <th>
-                        Alarm Name
+                        Site
                     </th>
                     <th>
                         Severity
@@ -39,7 +40,7 @@ export const Alarms: FC<{alarms: IAlarm[]}> = (props) => {
             </thead>
             <tbody>
                 {props.alarms.map((alarm: IAlarm) => {
-                    return <tr key={alarm.id}>
+                    return <tr className={Severity[alarm.alarmInfo.severity].toLowerCase()} key={alarm.id}>
                                 <td>
                                     {alarm.id}
                                 </td>
