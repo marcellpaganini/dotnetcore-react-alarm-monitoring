@@ -12,15 +12,20 @@ const App: FC = () => {
   const alarmInfoList: IAlarmInfo[] = JSON.parse(JSON.stringify(mockData));
 
   const alarmGenerator = () => {
-    const newAlarmList = [...alarms,
-                    {id: uuidv4(),
-                     name: "ADM" + Math.floor((Math.random() * 5000) + 1000).toString(),
-                     alarmInfo: alarmInfoList[Math.floor((Math.random() * alarmInfoList.length) + 0)],
-                     firstReceiveDate: new Date(),
-                     clearedDate: null,
-                     duration: 0}];
+    setInterval(() => {
+        let alea = (Math.random() * 10) + 1;
 
-    setAlarms(newAlarmList);
+        if (alea <= 2) {
+          setAlarms(previousList => { 
+            return [...previousList,
+            {id: uuidv4(),
+            name: "ADM" + Math.floor((Math.random() * 5000) + 1000).toString(),
+            alarmInfo: alarmInfoList[Math.floor((Math.random() * alarmInfoList.length) + 0)],
+            firstReceiveDate: new Date(),
+            clearedDate: null,
+            duration: 0}]})
+        }
+      }, 10000) 
   }
 
   useEffect(() => {

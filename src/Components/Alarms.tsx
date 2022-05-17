@@ -1,9 +1,11 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { IAlarm } from '../Types/IAlarm';
 import { Severity, AlarmClass } from '../Types/Enums';
 
 
 export const Alarms: FC<{alarms: IAlarm[]}> = (props) => {
+    const [alarmColor, setAlarmColor] = useState<string>("");
+
     return (
         <table>
             <thead>
