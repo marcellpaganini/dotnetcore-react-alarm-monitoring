@@ -31,14 +31,17 @@
   ```   
 
 ### React Topics practiced to get things done  
-- Function components with TypeScript
+- Function components with TypeScript   
+- useState hook with TypeScript   
 
 ### Project idea taken from:  
 ![alt text](https://www.ttgint.com/wp-content/uploads/2021/06/3-1.png)
 
 ### Error messages for future reference
+❌TypeError: Ajv is not a constructor.   
+**Solution** Delete node_modules folder, `npm i` and restart VSCode.    
 ❌Type 'Date' is not assignable to type 'ReactNode'.   
-**Solution** ...   
+**Solution** Objects, with the exception of React Elements, are not valid as children. Format the object to string type instead.   
 ✖Exception has occurred: TypeError: Cannot read properties of undefined (reading 'length')  
 **Solution** Initialize array state properly. Array wasn't defined in React  
 ✖React Hook useEffect has a missing dependency: 'props.orders'. Either include it or remove the dependency array.  
