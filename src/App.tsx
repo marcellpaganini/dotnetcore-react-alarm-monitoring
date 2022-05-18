@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Alarms } from './Components/Alarms';
+import { Header } from './Components/Header';
 import './App.css';
 import mockData from './Data/mockData.json';
 import { v4 as uuidv4 } from 'uuid';
@@ -35,8 +36,8 @@ const App: FC = () => {
 
   return (
     <div className="app">
-      <h3>Telecom Remote Monitoring 📡</h3>
-      { <Alarms alarms={alarms} /> }
+      <Header alarms={alarms} ></Header>
+      <Alarms alarms={alarms} />
     </div>
   );
 }

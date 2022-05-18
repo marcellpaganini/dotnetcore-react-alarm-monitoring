@@ -1,0 +1,131 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 3em;
+}
+
+.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 3em;
+}
+
+.activeTitle {
+    font-weight: 500;
+}
+
+.activeCount {
+    border: 0.15em solid black;
+    width: 100%;
+    border-radius: 0.20em;
+    background-color: lightgray;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.severity {
+    display: flex;
+    flex-direction: row;
+    margin-left: 3em;
+}
+
+.criticalCount {
+    display: flex;
+    flex-direction: column;
+    width: 5em;
+}
+
+.criticalNumber {
+    border: 0.10em solid black;
+    background-color: red;
+    opacity: 0.7;
+    font-weight: 500;
+}
+
+.majorCount {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.2em;
+    width: 5em
+}
+
+.majorNumber {
+    border: 0.10em solid black;
+    background-color: orange;
+    opacity: 0.7;
+    font-weight: 500;
+}
+
+.minorCount {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.2em;
+    width: 5em
+}
+
+.minorNumber {
+    border: 0.10em solid black;
+    background-color: yellow;
+    opacity: 0.7;
+    font-weight: 500;
+}
+
+.warningCount {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.2em;
+    width: 5em
+}
+
+.warningNumber {
+    border: 0.10em solid black;
+    background-color: white;
+    opacity: 0.7;
+    font-weight: 500;
+}
+
+.vendors {
+    display: flex;
+    border: 0.15em solid black;
+    border-top: 0.8em solid black;
+    border-radius: 0.6em;
+    margin-left: 3em;
+    width: 20em;
+    margin-bottom: 1.3em;
+    padding: 0.2em 0.3em 0.4em 0.3em;
+}
+
+.fiberZ {
+    display: flex;
+    flex-direction: column;
+    border-right: 0.15em solid black;
+    padding-right: 0.3em;
+}
+
+.signalY {
+    display: flex;
+    flex-direction: column;
+    border-right: 0.15em solid black;
+    padding-right: 0.3em;
+    padding-left: 0.3em;
+}
+
+.telcoX {
+    display: flex;
+    flex-direction: column;
+    padding-right: 0.3em;
+    padding-left: 0.3em;
+}
+
+.vendorCount {
+    background-color: black;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    width: 6em;
+}
+
+.date {
+    margin-left: 3em;
+    font-weight: 500;
+}
