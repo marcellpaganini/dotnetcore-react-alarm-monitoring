@@ -26,8 +26,12 @@ const App: FC = () => {
             firstReceiveDate: new Date(),
             clearedDate: null,
             duration: 0}]})
+        } else if (alea === 3 && alarms.length > 0) {
+          setAlarms(previousList => {
+            return [...previousList.filter(i => i !== previousList[Math.floor((Math.random() * previousList.length) + 0)])]
+          })
         }
-      }, 10000) 
+      }, 2000) 
   }
 
   useEffect(() => {
