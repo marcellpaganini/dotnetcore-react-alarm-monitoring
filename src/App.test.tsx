@@ -4,6 +4,6 @@ import App from './App';
 
 test('renders h1', () => {
   render(<App />);
-  const h1Tag = screen.getByText(/Telecom Remote Monitoring/i);
+  const h1Tag = screen.getByText(/📡/i);
   expect(h1Tag).toBeInTheDocument();
 });
