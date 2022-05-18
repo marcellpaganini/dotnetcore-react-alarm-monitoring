@@ -36,7 +36,7 @@ const App: FC = () => {
 
   return (
     <div className="app">
-      <Header></Header>
+      <Header alarms={alarms} ></Header>
       <Alarms alarms={alarms} />
     </div>
   );
