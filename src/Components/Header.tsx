@@ -34,6 +34,25 @@ export const Header: FC<HeaderProps> = (props: HeaderProps) => {
             <span>Warning</span>
           </section>
         </section>
+
+        <section className="vendors">
+          <section className="fiberZ">
+            <span>FiberZ</span>
+            <span className="vendorCount">{props.alarms.filter(a => a.alarmInfo.vendor === "FiberZ").length}</span>
+          </section>
+          <section className="signalY">
+            <span>SignalY</span>
+            <span className="vendorCount">{props.alarms.filter(a => a.alarmInfo.vendor === "SignalY").length}</span>
+          </section>
+          <section className="telcoX">
+            <span>TelcoX</span>
+            <span className="vendorCount">{props.alarms.filter(a => a.alarmInfo.vendor === "TelcoX").length}</span>
+          </section>
+        </section>
+
+        <section className="date">
+          {new Date().toLocaleDateString("en-US")}
+        </section>
     </div>
   )
 }

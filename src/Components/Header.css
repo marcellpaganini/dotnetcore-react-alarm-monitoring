@@ -43,9 +43,6 @@
     font-weight: 500;
 }
 
-.criticalDescription {
-
-}
 .majorCount {
     display: flex;
     flex-direction: column;
@@ -85,5 +82,50 @@
     border: 0.10em solid black;
     background-color: white;
     opacity: 0.7;
+    font-weight: 500;
+}
+
+.vendors {
+    display: flex;
+    border: 0.15em solid black;
+    border-top: 0.8em solid black;
+    border-radius: 0.6em;
+    margin-left: 3em;
+    width: 20em;
+    margin-bottom: 1.3em;
+    padding: 0.2em 0.3em 0.4em 0.3em;
+}
+
+.fiberZ {
+    display: flex;
+    flex-direction: column;
+    border-right: 0.15em solid black;
+    padding-right: 0.3em;
+}
+
+.signalY {
+    display: flex;
+    flex-direction: column;
+    border-right: 0.15em solid black;
+    padding-right: 0.3em;
+    padding-left: 0.3em;
+}
+
+.telcoX {
+    display: flex;
+    flex-direction: column;
+    padding-right: 0.3em;
+    padding-left: 0.3em;
+}
+
+.vendorCount {
+    background-color: black;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    width: 6em;
+}
+
+.date {
+    margin-left: 3em;
     font-weight: 500;
 }
