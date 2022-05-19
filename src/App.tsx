@@ -15,9 +15,9 @@ const App: FC = () => {
 
   const alarmGenerator = () => {
     setInterval(() => {
-        let alea = (Math.random() * 10) + 1;
+        let alea = (Math.floor(Math.random() * 10) + 1);
 
-        if (alea <= 2) {
+        if (alea <= 3) {
           setAlarms(previousList => { 
             return [...previousList,
             {id: uuidv4(),
@@ -26,8 +26,14 @@ const App: FC = () => {
             firstReceiveDate: new Date(),
             clearedDate: null,
             duration: 0}]})
+        } 
+        
+        if (alea > 8) {
+          setAlarms(previousList => {
+            return [...previousList.filter(i => i !== previousList[Math.floor((Math.random() * previousList.length) + 0)])]
+          })
         }
-      }, 10000) 
+      }, 2000) 
   }
 
   useEffect(() => {
