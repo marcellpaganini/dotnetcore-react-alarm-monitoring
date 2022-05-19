@@ -1,15 +1,29 @@
+.alarms {
+    display: flex;
+    background-color: lightgray;
+    height: 36em;
+    overflow: auto;
+    border-bottom: 0.3em solid black;
+}
+
 table {
+    flex: 1;
     border-collapse: collapse;
     border-spacing: 0px;
+    height: fit-content;
 }
 
 th {
-    border: 2px solid black;
     padding: 0.3em;
     margin: 0px;
     overflow: auto;
+    border-left: 0.01em solid black;
     background-color: rgb(61, 60, 60);
     color: white;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 td {
