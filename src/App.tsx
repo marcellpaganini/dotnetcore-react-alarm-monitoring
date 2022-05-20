@@ -44,7 +44,7 @@ const App: FC = () => {
   return (
     <div className="app">
       <Header alarms={alarms} ></Header>
-      <Filter></Filter>
+      <Filter alarms={alarms}></Filter>
       <Alarms alarms={alarms} />
     </div>
   );
