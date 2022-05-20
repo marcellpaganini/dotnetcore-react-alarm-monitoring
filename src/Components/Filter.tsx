@@ -1,41 +1,51 @@
-import React, { FC, useState, ChangeEvent } from 'react'
+import React, { FC, useState, ChangeEvent, Dispatch, SetStateAction } from 'react'
 import { AlarmClass, Severity } from '../Types/Enums';
 import { IAlarm } from '../Types/IAlarm';
 import { ISearchOptions } from '../Types/ISearchOptions';
 import './Filter.css';
 
 interface IFilterProps {
-    alarms: IAlarm[]
+    alarms: IAlarm[],
+    setAlarms: Dispatch<SetStateAction<IAlarm[]>>;
 }
 
+var filterResult = [];
+
 export const Filter: FC<IFilterProps> = (props: IFilterProps) => {
-    const [filterCriteria, setFilterCriteria] = useState<ISearchOptions>({});
+    const [filterCriteria, setFilterCriteria] = useState<ISearchOptions>({
+                                                                           alarmClass: undefined,
+                                                                           severity: undefined,
+                                                                           vendor: "",
+                                                                           date: ""
+                                                                         });
+
+    
 
     const handleAlarmClassChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        console.log(e.target.value);
-        setFilterCriteria({...filterCriteria, alarmClass: AlarmClass[e.target.value as keyof typeof AlarmClass]}); //get enum
+        setFilterCriteria({...filterCriteria, alarmClass: AlarmClass[e.target.value as keyof typeof AlarmClass]});
     };
 
     const handleSeverityChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        console.log(e.target.value);
-        setFilterCriteria({...filterCriteria, severity: Severity[e.target.value as keyof typeof Severity]}); //get enum
+        setFilterCriteria({...filterCriteria, severity: Severity[e.target.value as keyof typeof Severity]});
     };
 
     const handleVendorChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        console.log(e.target.value);
-        setFilterCriteria({...filterCriteria, vendor: e.target.value}); //get enum
+        setFilterCriteria({...filterCriteria, vendor: e.target.value});
     };
 
     const handleDateChange = (e: ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target.value);
-        setFilterCriteria({...filterCriteria, date: e.target.value}); //get enum
+        setFilterCriteria({...filterCriteria, date: e.target.value});
     };
 
     const handleSearch = () => {
-        console.log("search clicked");
-    }
 
-    console.log(filterCriteria);
+        if (filterCriteria.alarmClass !== undefined) {
+            props.setAlarms(props.alarms.filter(a => a.alarmInfo.alarmClass === filterCriteria.alarmClass))
+        } else if (filterCriteria.severity !== undefined) {
+            filterResult = props.alarms;
+
+        }        
+    }
 
     return (
         <div className="filterSection">

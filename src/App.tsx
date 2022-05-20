@@ -33,7 +33,7 @@ const App: FC = () => {
             return [...previousList.filter(i => i !== previousList[Math.floor((Math.random() * previousList.length) + 0)])]
           })
         }
-      }, 2000) 
+      }, 1000) 
   }
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const App: FC = () => {
   return (
     <div className="app">
       <Header alarms={alarms} ></Header>
-      <Filter alarms={alarms}></Filter>
+      <Filter alarms={alarms} setAlarms={setAlarms}></Filter>
       <Alarms alarms={alarms} />
     </div>
   );

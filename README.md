@@ -34,6 +34,7 @@
 - Function components with TypeScript   
 - useState hook with TypeScript 
 - Event handling with Typescript  
+- Context API with Typescript
 
 ### Project idea taken from:  
 ![alt text](https://www.ttgint.com/wp-content/uploads/2021/06/3-1.png)
