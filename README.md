@@ -46,7 +46,14 @@
 **Solution** Delete node_modules folder, `npm i` and restart VSCode.    
 ❌Type 'Date' is not assignable to type 'ReactNode'.   
 **Solution** Objects, with the exception of React Elements, are not valid as children. Format the object to string type instead.   
-🔼Typescript🔼  
+🔼Typescript🔼   
+✖Warning: Maximum update depth exceeded. This can happen when a component calls setState inside useEffect...  
+**Solution** Property didn't need to be set as state. In case access current state while changing it is needed:  
+```  
+useEffect(() => {  
+  setItems(currentItems => getCart(currentItems));  
+}, []);
+```  
 ✖Exception has occurred: TypeError: Cannot read properties of undefined (reading 'length')  
 **Solution** Initialize array state properly. Array wasn't defined in React  
 ✖React Hook useEffect has a missing dependency: 'props.orders'. Either include it or remove the dependency array.  
