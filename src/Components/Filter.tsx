@@ -1,4 +1,4 @@
-import React, { FC, useState, ChangeEvent, Dispatch, SetStateAction } from 'react'
+import React, { FC, ChangeEvent, Dispatch, SetStateAction } from 'react';
 import { AlarmClass, Severity } from '../Types/Enums';
 import { IAlarm } from '../Types/IAlarm';
 import { ISearchOptions } from '../Types/ISearchOptions';
@@ -7,44 +7,46 @@ import './Filter.css';
 interface IFilterProps {
     alarms: IAlarm[],
     setAlarms: Dispatch<SetStateAction<IAlarm[]>>;
+    filterCriteria: ISearchOptions,
+    setFilterCriteria: Dispatch<SetStateAction<ISearchOptions>>,
+    searchIsSet: boolean,
+    setSearchIsSet: Dispatch<SetStateAction<boolean>>
 }
 
-var filterResult = [];
-
 export const Filter: FC<IFilterProps> = (props: IFilterProps) => {
-    const [filterCriteria, setFilterCriteria] = useState<ISearchOptions>({
-                                                                           alarmClass: undefined,
-                                                                           severity: undefined,
-                                                                           vendor: "",
-                                                                           date: ""
-                                                                         });
-
-    
-
     const handleAlarmClassChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        setFilterCriteria({...filterCriteria, alarmClass: AlarmClass[e.target.value as keyof typeof AlarmClass]});
+        props.setFilterCriteria({...props.filterCriteria, alarmClass: AlarmClass[e.target.value as keyof typeof AlarmClass]});
+        handleSearch();
     };
 
     const handleSeverityChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        setFilterCriteria({...filterCriteria, severity: Severity[e.target.value as keyof typeof Severity]});
+        props.setFilterCriteria({...props.filterCriteria, severity: Severity[e.target.value as keyof typeof Severity]});
+        handleSearch();
     };
 
     const handleVendorChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        setFilterCriteria({...filterCriteria, vendor: e.target.value});
+        props.setFilterCriteria({...props.filterCriteria, vendor: e.target.value});
+        handleSearch();
     };
 
     const handleDateChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setFilterCriteria({...filterCriteria, date: e.target.value});
+        props.setFilterCriteria({...props.filterCriteria, date: e.target.value});
+        handleSearch();
     };
 
     const handleSearch = () => {
+        let newSearchIsSet = props.searchIsSet;
 
-        if (filterCriteria.alarmClass !== undefined) {
-            props.setAlarms(props.alarms.filter(a => a.alarmInfo.alarmClass === filterCriteria.alarmClass))
-        } else if (filterCriteria.severity !== undefined) {
-            filterResult = props.alarms;
-
-        }        
+        if (props.filterCriteria.alarmClass !== undefined ||
+            props.filterCriteria.severity !== undefined ||
+            props.filterCriteria.vendor !== "" ||
+            props.filterCriteria.date !== "") {
+                newSearchIsSet = true;
+                props.setSearchIsSet(newSearchIsSet);
+        } else {
+            newSearchIsSet = false;
+            props.setSearchIsSet(newSearchIsSet);
+        }
     }
 
     return (
@@ -99,9 +101,6 @@ export const Filter: FC<IFilterProps> = (props: IFilterProps) => {
                     <span>Date: </span>
                     <input type="date" onInput={handleDateChange}></input>
                 </section>
-            </section>
-            <section className="column">
-                <button onClick={handleSearch}>🔍 Search</button>
             </section>
         </div>
     )

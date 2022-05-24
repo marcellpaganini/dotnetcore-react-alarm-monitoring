@@ -34,12 +34,13 @@
 - Function components with TypeScript   
 - useState hook with TypeScript 
 - Event handling with Typescript  
-- Context API with Typescript
 
 ### Project idea taken from:  
 ![alt text](https://www.ttgint.com/wp-content/uploads/2021/06/3-1.png)
 
 ### Error messages for future reference
+❌Uncaught TypeError: Cannot assign to read only property 'searchIsSet' of object '#<Object>'  
+**Solution**  Create a copy of the property and assign the new value to it.   
 ❌Parameter 'e' implicitly has an 'any' type.  
 **Solution** Check the event type in the event parameter of the tag, then add it to the 'e' being passed in the function.  
 ❌TypeError: Ajv is not a constructor.   

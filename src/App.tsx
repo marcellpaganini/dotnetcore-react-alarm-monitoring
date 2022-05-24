@@ -7,10 +7,18 @@ import mockData from './Data/mockData.json';
 import { v4 as uuidv4 } from 'uuid';
 import { IAlarmInfo } from './Types/IAlarmInfo';
 import { IAlarm } from './Types/IAlarm';
+import { ISearchOptions } from './Types/ISearchOptions';
 
 
 const App: FC = () => {
   const [alarms, setAlarms] = useState<IAlarm[]>([] as IAlarm[]);
+  const [filterCriteria, setFilterCriteria] = useState<ISearchOptions>({
+    alarmClass: undefined,
+    severity: undefined,
+    vendor: "",
+    date: ""
+  });
+  const [searchIsSet, setSearchIsSet] = useState<boolean>(true);
   const alarmInfoList: IAlarmInfo[] = JSON.parse(JSON.stringify(mockData));
 
   const alarmGenerator = () => {
@@ -27,7 +35,6 @@ const App: FC = () => {
             clearedDate: null,
             duration: 0}]})
         } 
-        
         if (alea > 8) {
           setAlarms(previousList => {
             return [...previousList.filter(i => i !== previousList[Math.floor((Math.random() * previousList.length) + 0)])]
@@ -44,8 +51,8 @@ const App: FC = () => {
   return (
     <div className="app">
       <Header alarms={alarms} ></Header>
-      <Filter alarms={alarms} setAlarms={setAlarms}></Filter>
-      <Alarms alarms={alarms} />
+      <Filter alarms={alarms} setAlarms={setAlarms} filterCriteria={filterCriteria} setFilterCriteria={setFilterCriteria} searchIsSet={searchIsSet} setSearchIsSet={setSearchIsSet}></Filter>
+      <Alarms alarms={alarms} searchIsSet={searchIsSet} filterCriteria={filterCriteria} />
     </div>
   );
 }
