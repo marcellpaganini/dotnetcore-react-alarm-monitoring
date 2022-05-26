@@ -3,6 +3,7 @@ import { IAlarm } from '../Types/IAlarm';
 import { Severity, AlarmClass } from '../Types/Enums';
 import './Alarms.css';
 import { ISearchOptions } from '../Types/ISearchOptions';
+import { durationCounter, formatDuration } from '../Counter';
 
 interface IAlarmsProps {
     alarms: IAlarm[],
@@ -91,7 +92,7 @@ export const Alarms: FC<IAlarmsProps> = (props) => {
                                 {AlarmClass[alarm.alarmClass]}
                             </td>
                             <td>
-                                {alarm.duration}
+                                {formatDuration(durationCounter(alarm.firstReceiveDate, new Date()))}
                             </td>
                         </tr>
                     })}

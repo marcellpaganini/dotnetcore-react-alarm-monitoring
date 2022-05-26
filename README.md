@@ -18,12 +18,10 @@
   ```bash
   npx create-react-app . --template typescript
   ```   
-  * Delete all files in the src/ folder  
-  * Add index.js  
-  * Add these lines on top of the index.js file  
-  ```js
-    import React from 'react';
-    import ReactDOM from 'react-dom';
+  * Install Luxon library to work with dates  
+  ```bash
+  npm install --save luxon
+  npm i --save-dev @types/luxon
   ```  
   * Run the project and open http://localhost:3000
   ```bash
