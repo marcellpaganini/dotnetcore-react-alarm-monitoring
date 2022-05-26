@@ -18,7 +18,6 @@ const App: FC = () => {
     vendor: "xxx",
     date: "xxx"
   });
-  const [searchIsSet, setSearchIsSet] = useState<boolean>(true);
   const alarmInfoList: IAlarmInfo[] = JSON.parse(JSON.stringify(mockData));
 
   const alarmGenerator = () => {
@@ -51,8 +50,8 @@ const App: FC = () => {
   return (
     <div className="app">
       <Header alarms={alarms} ></Header>
-      <Filter alarms={alarms} setAlarms={setAlarms} filterCriteria={filterCriteria} setFilterCriteria={setFilterCriteria} searchIsSet={searchIsSet} setSearchIsSet={setSearchIsSet}></Filter>
-      <Alarms alarms={alarms} searchIsSet={searchIsSet} filterCriteria={filterCriteria} />
+      <Filter alarms={alarms} setAlarms={setAlarms} filterCriteria={filterCriteria} setFilterCriteria={setFilterCriteria}></Filter>
+      <Alarms alarms={alarms} filterCriteria={filterCriteria} />
     </div>
   );
 }

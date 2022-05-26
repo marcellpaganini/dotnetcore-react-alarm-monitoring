@@ -8,9 +8,7 @@ interface IFilterProps {
     alarms: IAlarm[],
     setAlarms: Dispatch<SetStateAction<IAlarm[]>>;
     filterCriteria: ISearchOptions,
-    setFilterCriteria: Dispatch<SetStateAction<ISearchOptions>>,
-    searchIsSet: boolean,
-    setSearchIsSet: Dispatch<SetStateAction<boolean>>
+    setFilterCriteria: Dispatch<SetStateAction<ISearchOptions>>
 }
 
 export const Filter: FC<IFilterProps> = (props: IFilterProps) => {
@@ -20,7 +18,6 @@ export const Filter: FC<IFilterProps> = (props: IFilterProps) => {
         } else {
             props.setFilterCriteria({ ...props.filterCriteria, alarmClass: AlarmClass[e.target.value as keyof typeof AlarmClass] });
         }
-        handleSearch();
     };
 
     const handleSeverityChange = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -29,7 +26,6 @@ export const Filter: FC<IFilterProps> = (props: IFilterProps) => {
         } else {
             props.setFilterCriteria({ ...props.filterCriteria, severity: Severity[e.target.value as keyof typeof Severity] });
         }
-        handleSearch();
     };
 
     const handleVendorChange = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -38,28 +34,11 @@ export const Filter: FC<IFilterProps> = (props: IFilterProps) => {
         } else {
             props.setFilterCriteria({ ...props.filterCriteria, vendor: e.target.value });
         }
-        handleSearch();
     };
 
     const handleDateChange = (e: ChangeEvent<HTMLInputElement>) => {
         props.setFilterCriteria({ ...props.filterCriteria, date: e.target.value === "" ? "xxx" : e.target.value });
-        handleSearch();
     };
-
-    const handleSearch = () => {
-        let newSearchIsSet = props.searchIsSet;
-
-        if (props.filterCriteria.alarmClass !== undefined ||
-            props.filterCriteria.severity !== undefined ||
-            props.filterCriteria.vendor !== "" ||
-            props.filterCriteria.date !== "") {
-            newSearchIsSet = true;
-            props.setSearchIsSet(newSearchIsSet);
-        } else {
-            newSearchIsSet = false;
-            props.setSearchIsSet(newSearchIsSet);
-        }
-    }
 
     return (
         <div className="filterSection">

@@ -6,7 +6,6 @@ import { ISearchOptions } from '../Types/ISearchOptions';
 
 interface IAlarmsProps {
     alarms: IAlarm[],
-    searchIsSet: boolean,
     filterCriteria: ISearchOptions
 }
 
@@ -14,7 +13,6 @@ export const Alarms: FC<IAlarmsProps> = (props) => {
     const handleSearchResults = (alarms: IAlarm[]): { id: any, name: any, severity: any, probableCause: any, vendor: any, alarmClass: any, firstReceiveDate: any, clearedDate: any, duration: any }[] => {
         var flatAlarms = alarms.map(({ id, name, alarmInfo: { severity, probableCause, vendor, alarmClass }, firstReceiveDate, clearedDate, duration }) =>
             ({ id, name, severity, probableCause, vendor, alarmClass, firstReceiveDate, clearedDate, duration }));
-
 
         const filteredAlarms = flatAlarms.filter((alarm) => {
             return (alarm.alarmClass.toString().indexOf(props.filterCriteria.alarmClass!.toString()) > -1 ||
