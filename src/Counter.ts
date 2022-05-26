@@ -5,7 +5,7 @@ export const durationCounter = (start: Date, now: Date): DurationObjectUnits => 
     const previousDate =  DateTime.fromISO(start.toISOString());
     const newDate = DateTime.fromISO(now.toISOString());
     const difference = newDate.diff(previousDate, ["years", "months", "days", "hours", "minutes"]);
-    console.log(difference.toObject());
+    
     return difference;
 }
 

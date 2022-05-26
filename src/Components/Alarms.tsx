@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { IAlarm } from '../Types/IAlarm';
 import { Severity, AlarmClass } from '../Types/Enums';
 import './Alarms.css';
@@ -29,11 +29,6 @@ export const Alarms: FC<IAlarmsProps> = (props) => {
             return filteredAlarms;
         }
     }
-
-    useEffect(() => {
-        if(props.alarms.length > 0)
-        console.log(formatDuration(durationCounter(props.alarms[0].firstReceiveDate, new Date())));
-    }, [props.alarms])
 
     return (
         <div className="alarms">
