@@ -16,33 +16,33 @@ interface IFilterProps {
 export const Filter: FC<IFilterProps> = (props: IFilterProps) => {
     const handleAlarmClassChange = (e: ChangeEvent<HTMLSelectElement>) => {
         if (e.target.value === "10") {
-            props.setFilterCriteria({...props.filterCriteria, alarmClass: 10});
+            props.setFilterCriteria({ ...props.filterCriteria, alarmClass: 10 });
         } else {
-            props.setFilterCriteria({...props.filterCriteria, alarmClass: AlarmClass[e.target.value as keyof typeof AlarmClass]});
+            props.setFilterCriteria({ ...props.filterCriteria, alarmClass: AlarmClass[e.target.value as keyof typeof AlarmClass] });
         }
         handleSearch();
     };
 
     const handleSeverityChange = (e: ChangeEvent<HTMLSelectElement>) => {
         if (e.target.value === "10") {
-            props.setFilterCriteria({...props.filterCriteria, severity: 10});
+            props.setFilterCriteria({ ...props.filterCriteria, severity: 10 });
         } else {
-        props.setFilterCriteria({...props.filterCriteria, severity: Severity[e.target.value as keyof typeof Severity]});
+            props.setFilterCriteria({ ...props.filterCriteria, severity: Severity[e.target.value as keyof typeof Severity] });
         }
         handleSearch();
     };
 
     const handleVendorChange = (e: ChangeEvent<HTMLSelectElement>) => {
         if (e.target.value === "xxx") {
-            props.setFilterCriteria({...props.filterCriteria, vendor: "xxx"});
+            props.setFilterCriteria({ ...props.filterCriteria, vendor: "xxx" });
         } else {
-        props.setFilterCriteria({...props.filterCriteria, vendor: e.target.value});
+            props.setFilterCriteria({ ...props.filterCriteria, vendor: e.target.value });
         }
         handleSearch();
     };
 
     const handleDateChange = (e: ChangeEvent<HTMLInputElement>) => {
-        props.setFilterCriteria({...props.filterCriteria, date: e.target.value});
+        props.setFilterCriteria({ ...props.filterCriteria, date: e.target.value === "" ? "xxx" : e.target.value });
         handleSearch();
     };
 
@@ -53,8 +53,8 @@ export const Filter: FC<IFilterProps> = (props: IFilterProps) => {
             props.filterCriteria.severity !== undefined ||
             props.filterCriteria.vendor !== "" ||
             props.filterCriteria.date !== "") {
-                newSearchIsSet = true;
-                props.setSearchIsSet(newSearchIsSet);
+            newSearchIsSet = true;
+            props.setSearchIsSet(newSearchIsSet);
         } else {
             newSearchIsSet = false;
             props.setSearchIsSet(newSearchIsSet);
@@ -70,8 +70,8 @@ export const Filter: FC<IFilterProps> = (props: IFilterProps) => {
                 <section>
                     <span>Alarm Class: </span>
                     <select name="alarm-class" onChange={handleAlarmClassChange}>
-                            <option key="10" value="10">Select...</option>
-                                {Object.keys(AlarmClass).filter(v => v.length > 1).map(key => (
+                        <option key="10" value="10">Select...</option>
+                        {Object.keys(AlarmClass).filter(v => v.length > 1).map(key => (
                             <option key={key} value={key}>
                                 {key}
                             </option>
