@@ -15,17 +15,29 @@ interface IFilterProps {
 
 export const Filter: FC<IFilterProps> = (props: IFilterProps) => {
     const handleAlarmClassChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        props.setFilterCriteria({...props.filterCriteria, alarmClass: AlarmClass[e.target.value as keyof typeof AlarmClass]});
+        if (e.target.value === "10") {
+            props.setFilterCriteria({...props.filterCriteria, alarmClass: 10});
+        } else {
+            props.setFilterCriteria({...props.filterCriteria, alarmClass: AlarmClass[e.target.value as keyof typeof AlarmClass]});
+        }
         handleSearch();
     };
 
     const handleSeverityChange = (e: ChangeEvent<HTMLSelectElement>) => {
+        if (e.target.value === "10") {
+            props.setFilterCriteria({...props.filterCriteria, severity: 10});
+        } else {
         props.setFilterCriteria({...props.filterCriteria, severity: Severity[e.target.value as keyof typeof Severity]});
+        }
         handleSearch();
     };
 
     const handleVendorChange = (e: ChangeEvent<HTMLSelectElement>) => {
+        if (e.target.value === "xxx") {
+            props.setFilterCriteria({...props.filterCriteria, vendor: "xxx"});
+        } else {
         props.setFilterCriteria({...props.filterCriteria, vendor: e.target.value});
+        }
         handleSearch();
     };
 
@@ -58,7 +70,7 @@ export const Filter: FC<IFilterProps> = (props: IFilterProps) => {
                 <section>
                     <span>Alarm Class: </span>
                     <select name="alarm-class" onChange={handleAlarmClassChange}>
-                            <option value="">Select...</option>
+                            <option key="10" value="10">Select...</option>
                                 {Object.keys(AlarmClass).filter(v => v.length > 1).map(key => (
                             <option key={key} value={key}>
                                 {key}
@@ -69,7 +81,7 @@ export const Filter: FC<IFilterProps> = (props: IFilterProps) => {
                 <section>
                     <span>Severity: </span>
                     <select name="alarm-class" onChange={handleSeverityChange}>
-                        <option value="">Select...</option>
+                        <option value="10">Select...</option>
                         {Object.keys(Severity).filter(v => v.length > 1).map(key => (
                             <option key={key} value={key} aria-selected="true">
                                 {key}
@@ -85,7 +97,7 @@ export const Filter: FC<IFilterProps> = (props: IFilterProps) => {
                 <section>
                     <span>Vendor: </span>
                     <select name="alarm-class" onChange={handleVendorChange}>
-                        <option value="">Select...</option>
+                        <option value="xxx">Select...</option>
                         <option value="FiberZ" aria-selected="true">
                             FiberZ
                         </option>

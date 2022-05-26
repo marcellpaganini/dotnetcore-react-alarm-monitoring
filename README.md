@@ -38,7 +38,9 @@
 ### Project idea taken from:  
 ![alt text](https://www.ttgint.com/wp-content/uploads/2021/06/3-1.png)
 
-### Error messages for future reference
+### Error messages for future reference  
+❌Error: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type ''   
+**Solution** Use type assertion: ```element as keyof typeof object```.   
 ❌Uncaught TypeError: Cannot assign to read only property 'searchIsSet' of object '#<Object>'  
 **Solution**  Create a copy of the property and assign the new value to it.   
 ❌Parameter 'e' implicitly has an 'any' type.  

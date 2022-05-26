@@ -13,10 +13,10 @@ import { ISearchOptions } from './Types/ISearchOptions';
 const App: FC = () => {
   const [alarms, setAlarms] = useState<IAlarm[]>([] as IAlarm[]);
   const [filterCriteria, setFilterCriteria] = useState<ISearchOptions>({
-    alarmClass: undefined,
-    severity: undefined,
-    vendor: "",
-    date: ""
+    alarmClass: 10,
+    severity: 10,
+    vendor: "xxx",
+    date: "xxx"
   });
   const [searchIsSet, setSearchIsSet] = useState<boolean>(true);
   const alarmInfoList: IAlarmInfo[] = JSON.parse(JSON.stringify(mockData));
