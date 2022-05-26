@@ -7,10 +7,17 @@ import mockData from './Data/mockData.json';
 import { v4 as uuidv4 } from 'uuid';
 import { IAlarmInfo } from './Types/IAlarmInfo';
 import { IAlarm } from './Types/IAlarm';
+import { ISearchOptions } from './Types/ISearchOptions';
 
 
 const App: FC = () => {
   const [alarms, setAlarms] = useState<IAlarm[]>([] as IAlarm[]);
+  const [filterCriteria, setFilterCriteria] = useState<ISearchOptions>({
+    alarmClass: 10,
+    severity: 10,
+    vendor: "xxx",
+    date: "xxx"
+  });
   const alarmInfoList: IAlarmInfo[] = JSON.parse(JSON.stringify(mockData));
 
   const alarmGenerator = () => {
@@ -27,13 +34,12 @@ const App: FC = () => {
             clearedDate: null,
             duration: 0}]})
         } 
-        
         if (alea > 8) {
           setAlarms(previousList => {
             return [...previousList.filter(i => i !== previousList[Math.floor((Math.random() * previousList.length) + 0)])]
           })
         }
-      }, 2000) 
+      }, 1000) 
   }
 
   useEffect(() => {
@@ -44,8 +50,8 @@ const App: FC = () => {
   return (
     <div className="app">
       <Header alarms={alarms} ></Header>
-      <Filter></Filter>
-      <Alarms alarms={alarms} />
+      <Filter alarms={alarms} setAlarms={setAlarms} filterCriteria={filterCriteria} setFilterCriteria={setFilterCriteria}></Filter>
+      <Alarms alarms={alarms} filterCriteria={filterCriteria} />
     </div>
   );
 }

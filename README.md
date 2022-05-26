@@ -32,22 +32,30 @@
 
 ### React Topics practiced to get things done  
 - Function components with TypeScript   
-- useState hook with TypeScript   
+- useState hook with TypeScript 
+- Event handling with Typescript  
 
 ### Project idea taken from:  
 ![alt text](https://www.ttgint.com/wp-content/uploads/2021/06/3-1.png)
 
-### Error messages for future reference
+### Error messages for future reference  
+❌Error: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type ''   
+**Solution** Use type assertion: ```element as keyof typeof object```.   
+❌Uncaught TypeError: Cannot assign to read only property 'searchIsSet' of object '#<Object>'  
+**Solution**  Create a copy of the property and assign the new value to it.   
+❌Parameter 'e' implicitly has an 'any' type.  
+**Solution** Check the event type in the event parameter of the tag, then add it to the 'e' being passed in the function.  
 ❌TypeError: Ajv is not a constructor.   
 **Solution** Delete node_modules folder, `npm i` and restart VSCode.    
 ❌Type 'Date' is not assignable to type 'ReactNode'.   
 **Solution** Objects, with the exception of React Elements, are not valid as children. Format the object to string type instead.   
+🔼Typescript🔼   
 ✖Warning: Maximum update depth exceeded. This can happen when a component calls setState inside useEffect...  
 **Solution** Property didn't need to be set as state. In case access current state while changing it is needed:  
 ```  
 useEffect(() => {  
   setItems(currentItems => getCart(currentItems));  
-}, []);   
+}, []);
 ```  
 ✖Exception has occurred: TypeError: Cannot read properties of undefined (reading 'length')  
 **Solution** Initialize array state properly. Array wasn't defined in React  

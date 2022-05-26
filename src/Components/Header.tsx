@@ -2,11 +2,11 @@ import React, { FC } from 'react'
 import { IAlarm } from '../Types/IAlarm';
 import './Header.css';
 
-interface HeaderProps {
+interface IHeaderProps {
   alarms: IAlarm[]
 }
 
-export const Header: FC<HeaderProps> = (props: HeaderProps) => {
+export const Header: FC<IHeaderProps> = (props: IHeaderProps) => {
   return (
     <div className="header">
         <h1>📡</h1>
