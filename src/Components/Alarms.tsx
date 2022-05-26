@@ -1,8 +1,9 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { IAlarm } from '../Types/IAlarm';
 import { Severity, AlarmClass } from '../Types/Enums';
 import './Alarms.css';
 import { ISearchOptions } from '../Types/ISearchOptions';
+import { durationCounter, formatDuration } from '../Counter';
 
 interface IAlarmsProps {
     alarms: IAlarm[],
@@ -28,6 +29,11 @@ export const Alarms: FC<IAlarmsProps> = (props) => {
             return filteredAlarms;
         }
     }
+
+    useEffect(() => {
+        if(props.alarms.length > 0)
+        console.log(formatDuration(durationCounter(props.alarms[0].firstReceiveDate, new Date())));
+    }, [props.alarms])
 
     return (
         <div className="alarms">
@@ -91,7 +97,7 @@ export const Alarms: FC<IAlarmsProps> = (props) => {
                                 {AlarmClass[alarm.alarmClass]}
                             </td>
                             <td>
-                                {alarm.duration}
+                                {formatDuration(durationCounter(alarm.firstReceiveDate, new Date()))}
                             </td>
                         </tr>
                     })}
