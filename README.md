@@ -26,7 +26,12 @@
   * Run the project and open http://localhost:3000
   ```bash
   npm start
-  ```   
+  ``` 
+* DotNet Core   
+ * Create web api project  
+ ```bash
+ dotnet new webapi
+ ``` 
 
 ### Topics practiced to get things done  
 ## React  
