@@ -28,11 +28,18 @@
   npm start
   ```   
 
-### React Topics practiced to get things done  
+### Topics practiced to get things done  
+## React  
 - Function components with TypeScript   
 - useState hook with TypeScript 
 - Event handling with Typescript  
-
+## Luxon  
+- Calculate timespan with DateTime.diff()  
+- Formatting  
+- DurationObjectUnits  
+## JWT  
+- Authentication  
+- Authorization  
 ### Project idea taken from:  
 ![alt text](https://www.ttgint.com/wp-content/uploads/2021/06/3-1.png)
 
@@ -78,4 +85,4 @@ useEffect(() => {
 ✖ Warning: You are importing createRoot from "react-dom" which is not supported. You should instead import it from "react-dom/client".  
 **Solution:** Change ```import ReactDOM from 'react-dom';``` to ```import ReactDOM from 'react-dom/client';```  
 ✖ ERROR in Plugin "react" was conflicted between "package.json and BaseConfig.  
-**Solution:** Open package.json and hit ctrl + save (temporary workaround). Changed directory structure that was case sensitive (real solution).
+**Solution:** Open package.json and hit ctrl + save (temporary workaround). Changed directory structure that was case sensitive (real solution).  
