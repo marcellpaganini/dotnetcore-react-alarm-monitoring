@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MfhXCPo0cu7V/cy/9QzOpH7Nu4V5A3flWHdGLaluaXWOYapCl/sp2WM/CCdG027/41v+F93gNRlLw/hP135VTA==",
+  "dgSpecHash": "i785QgKjkLFvf8VXr7cIoBVerWo/kiN3mfAUj+RLuUhzDLB47vJicarghoIFnyqC9yWNXiPVCy7NbllwdQCipg==",
   "success": true,
-  "projectFilePath": "C:\\src\\reactjs\\react-telecom-remote-monitoring\\Server\\Server.csproj",
+  "projectFilePath": "C:\\src\\reactjs\\react-telecom-remote-monitoring\\server\\Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mtanure\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\mtanure\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
