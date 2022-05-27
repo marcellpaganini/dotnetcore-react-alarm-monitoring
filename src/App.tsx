@@ -39,7 +39,7 @@ const App: FC = () => {
             return [...previousList.filter(i => i !== previousList[Math.floor((Math.random() * previousList.length) + 0)])]
           })
         }
-      }, 1000) 
+      }, 20000) 
   }
 
   useEffect(() => {
