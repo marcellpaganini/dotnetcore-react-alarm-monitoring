@@ -31,12 +31,12 @@
   npm start
   ``` 
 * DotNet Core   
- * Create web api project  
+  * Create web api project  
  ```bash
  dotnet new webapi
  ``` 
 * MariaDB  
- * Add nuget package   
+  * Add nuget package   
  ```bash
  dotnet add package Pomelo.EntityFrameworkCore.MySql
  ```
