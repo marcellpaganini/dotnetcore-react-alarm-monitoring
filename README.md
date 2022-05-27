@@ -35,6 +35,11 @@
  ```bash
  dotnet new webapi
  ``` 
+* MariaDB  
+ * Add nuget package   
+ ```bash
+ dotnet add package Pomelo.EntityFrameworkCore.MySql
+ ```
 
 ### Topics practiced to get things done  
 ## React  
