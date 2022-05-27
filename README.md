@@ -1,6 +1,9 @@
 # react-telecom-remote-monitoring    
 
 ## Built With  
+* [Maria](https://mariadb.org/// "MariaDB Foundation")   
+* [C#](https://docs.microsoft.com/en-us/dotnet/csharp/// "C# documentation")   
+* [DotNet_Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-6.0/// "ASP.NET Core documentation")    
 * [TypeScript](https://www.typescriptlang.org/docs/// "TypeScript documentation")  
 * [React](https://reactjs.org// "React Documentation")  
 
