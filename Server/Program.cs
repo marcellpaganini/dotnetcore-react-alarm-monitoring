@@ -10,6 +10,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
+builder.Services.AddCors();
+
 builder.Services.AddDbContextFactory<UserContext>(options => 
 {
     var connectionString = builder.Configuration.GetConnectionString("MariaDbConnectionString");
@@ -30,6 +32,13 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors(options => options
+    .WithOrigins(new [] {"http://localhost:3000"})   //(ReactJs)More urls can be added to the array if needed
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    .AllowCredentials()
+    );
 
 app.MapControllers();
 
