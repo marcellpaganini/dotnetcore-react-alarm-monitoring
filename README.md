@@ -54,6 +54,11 @@ dotnet ef database update
 ```bash
 dotnet add package BCrypt.Net-Next --version 4.0.3    
 ```    
+  * JWT   
+```bash
+dotnet add package System.IdentityModel.Tokens.Jwt --version 6.18.0
+dotnet add package Microsoft.AspNetCore.Cors --version 2.2.0
+```
 
 ### Topics practiced to get things done  
 ## React  
