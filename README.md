@@ -50,6 +50,10 @@ dotnet ef migrations add InitialCreate
 ```bash
 dotnet ef database update
 ```
+  * Password hash  
+```bash
+dotnet add package BCrypt.Net-Next --version 4.0.3    
+```    
 
 ### Topics practiced to get things done  
 ## React  

@@ -1,4 +1,6 @@
 using Server.Data;
+using Server.DTOs;
+using Server.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Server.Controllers
@@ -15,9 +17,15 @@ namespace Server.Controllers
         }
 
         [HttpPost("register")]
-        public IActionResult Register() 
+        public IActionResult Register(RegisterDto dto) 
         {
-            return Ok("Success");
+            var user = new User 
+            {
+                UserName = dto.UserName ?? "",
+                Password = BCrypt.Net.BCrypt.HashPassword(dto.Password)
+            };
+
+            return Created("success", _repository.Create(user));
         }
     }
 }
