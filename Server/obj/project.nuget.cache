@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "PaDYyOAyGEmsMMBfUtwMpQ7PhyHRka3LupkyXmIwSVPEAOlAIaJ0XvirwTZcDHRsIzjtW05VzSmy2aVmHaAuTw==",
+  "dgSpecHash": "mjfZbwN87q6dSBWxf47q9Fymjeq6udr3duDDthNnqEHYf6d+JLVhTKpdUdf2HLGZZq2WyrNcMfsssX6TBAqZGA==",
   "success": true,
   "projectFilePath": "C:\\src\\reactjs\\react-telecom-remote-monitoring\\server\\Server.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\mtanure\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\mtanure\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\mtanure\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.5\\microsoft.entityframeworkcore.6.0.5.nupkg.sha512",
     "C:\\Users\\mtanure\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.5\\microsoft.entityframeworkcore.abstractions.6.0.5.nupkg.sha512",
