@@ -1,6 +1,7 @@
 using Server.Data;
 using Server.DTOs;
 using Server.Models;
+using Server.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Server.Controllers
@@ -10,10 +11,12 @@ namespace Server.Controllers
     public class AuthController: Controller
     {
         private readonly IUserRepository _repository;
+        private readonly JwtService _jwtService;
 
-        public AuthController(IUserRepository repository) 
+        public AuthController(IUserRepository repository,  JwtService jwtService) 
         {
             _repository = repository;
+            _jwtService = jwtService;
         }
 
         [HttpPost("register")]
@@ -40,7 +43,17 @@ namespace Server.Controllers
                 return BadRequest(new {message = "Invalid Credentials"});
             }           
 
-            return Ok(user);
+            var jwt = _jwtService.Generate(user.Id);
+
+            Response.Cookies.Append("jwt", jwt, new CookieOptions
+            {
+                HttpOnly = true
+            });
+
+            return Ok(new 
+            {
+                message = "success"
+            });
         }
     }
 }
