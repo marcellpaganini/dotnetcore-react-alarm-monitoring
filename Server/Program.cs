@@ -15,6 +15,8 @@ builder.Services.AddDbContextFactory<UserContext>(options =>
     options.UseMySql(connectionString, MariaDbServerVersion.AutoDetect(connectionString), b => b.MigrationsAssembly("Server"));
 });
 
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Server.Controllers
 {
-    [Route("")]
+    [Route("api")]
     [ApiController]
     public class AuthController: Controller
     {
@@ -14,8 +14,8 @@ namespace Server.Controllers
             _repository = repository;
         }
 
-        [HttpGet]
-        public IActionResult Hello() 
+        [HttpPost("register")]
+        public IActionResult Register() 
         {
             return Ok("Success");
         }
