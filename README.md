@@ -39,7 +39,17 @@
   * Add nuget package   
  ```bash
  dotnet add package Pomelo.EntityFrameworkCore.MySql
- ```
+ dotnet add package Microsoft.EntityFrameworkCore.Design
+ ```  
+ * Migrations  
+  * First Migration   
+```bash
+dotnet ef migrations add InitialCreate
+```
+  * Database schema   
+```bash
+dotnet ef database update
+```
 
 ### Topics practiced to get things done  
 ## React  

@@ -9,8 +9,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddDbContextPool<Server.Data.UserContext>(options => options.UseMySql(Configuration.GetConnectionString("MariaDbConnectionString"),
-            mySqlOptions => mySqlOptions.ServerVersion(new Version(10, 5, 4), ServerType.MariaDb)));
+builder.Services.AddDbContextFactory<Server.Data.UserContext>(options => 
+{
+    var connectionString = builder.Configuration.GetConnectionString("MariaDbConnectionString");
+    options.UseMySql(connectionString, MariaDbServerVersion.AutoDetect(connectionString), b => b.MigrationsAssembly("Server"));
+});
 
 var app = builder.Build();
 
