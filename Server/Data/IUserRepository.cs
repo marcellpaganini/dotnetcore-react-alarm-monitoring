@@ -4,7 +4,8 @@ namespace Server.Data
 {
     public interface IUserRepository
     {
-         User Create(User user);
-         User? GetByUserName(string name);
+        User Create(User user);
+        User? GetByUserName(string name);
+        User? GetById(Guid id);
     }
 }

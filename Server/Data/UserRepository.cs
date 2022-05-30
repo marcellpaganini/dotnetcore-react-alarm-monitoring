@@ -24,5 +24,10 @@ namespace Server.Data
         {
             return _context.Users.FirstOrDefault(u => u.UserName == name) ?? null;
         }
+
+        public User? GetById(Guid id) 
+        {
+            return _context.Users.FirstOrDefault(u => u.Id == id) ?? null;
+        }
     }
 }

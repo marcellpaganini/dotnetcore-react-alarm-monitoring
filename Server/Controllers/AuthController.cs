@@ -55,5 +55,26 @@ namespace Server.Controllers
                 message = "success"
             });
         }
+
+        [HttpGet("user")]
+        public IActionResult GetUser() 
+        {
+            try 
+            {
+                var jwt = Request.Cookies["jwt"];
+
+                var token = _jwtService.Verify(jwt ?? "");
+
+                Guid userId = Guid.Parse(token.Issuer);
+
+                var user = _repository.GetById(userId);
+
+                return Ok(user);
+            }
+            catch
+            {
+                return Unauthorized();
+            }
+        }
     }
 }

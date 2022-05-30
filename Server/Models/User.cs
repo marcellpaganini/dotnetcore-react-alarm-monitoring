@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace Server.Models
 {
     public class User
@@ -6,6 +8,7 @@ namespace Server.Models
 
         public string UserName { get; set; } = string.Empty;
 
+        [JsonIgnore]
         public string Password { get; set; } = string.Empty;
     }
 }
