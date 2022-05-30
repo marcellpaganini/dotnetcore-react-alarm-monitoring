@@ -19,5 +19,10 @@ namespace Server.Data
             
             return user;
         }
+
+        public User? GetByUserName(string name) 
+        {
+            return _context.Users.FirstOrDefault(u => u.UserName == name) ?? null;
+        }
     }
 }

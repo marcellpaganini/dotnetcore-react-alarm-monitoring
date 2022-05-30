@@ -27,5 +27,20 @@ namespace Server.Controllers
 
             return Created("success", _repository.Create(user));
         }
+
+        [HttpPost("login")]
+        public IActionResult Login(LoginDto dto) 
+        {
+            var user = _repository.GetByUserName(dto.UserName);
+
+            if (user == null) return BadRequest(new {message = "Invalid Credentials"});
+             
+            if (!BCrypt.Net.BCrypt.Verify(dto.Password, user.Password)) 
+            {
+                return BadRequest(new {message = "Invalid Credentials"});
+            }           
+
+            return Ok(user);
+        }
     }
 }
