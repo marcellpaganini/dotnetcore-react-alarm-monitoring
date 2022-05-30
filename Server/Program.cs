@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using Server.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,11 +9,13 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddDbContextFactory<Server.Data.UserContext>(options => 
+builder.Services.AddDbContextFactory<UserContext>(options => 
 {
     var connectionString = builder.Configuration.GetConnectionString("MariaDbConnectionString");
     options.UseMySql(connectionString, MariaDbServerVersion.AutoDetect(connectionString), b => b.MigrationsAssembly("Server"));
 });
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 
