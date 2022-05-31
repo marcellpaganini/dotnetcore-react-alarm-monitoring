@@ -1,0 +1,32 @@
+.app {
+    padding: 0;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3em;
+    background-color: rgb(35, 35, 35);
+}
+
+.links {
+    margin-right: 0.5em;
+}
+
+a {
+    color: white;
+    margin: 0.7em;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    color: rgb(184, 184, 184);
+}
+
+span {
+    font-size:x-large;
+    margin-left: 0.5em;
+    margin: 0.7em;
+}
