@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { Alarms } from './Alarms';
 import { Header } from './Header';
 import { Filter } from './Filter';
@@ -7,9 +7,12 @@ import { v4 as uuidv4 } from 'uuid';
 import { IAlarmInfo } from '../Types/IAlarmInfo';
 import { IAlarm } from '../Types/IAlarm';
 import { ISearchOptions } from '../Types/ISearchOptions';
+import './Main.css';
 
-
-type Props = {}
+type Props = {
+    showNav: boolean
+    setShowNav: Dispatch<SetStateAction<boolean>>
+}
 
 export const Main = (props: Props) => {
     const [alarms, setAlarms] = useState<IAlarm[]>([] as IAlarm[]);
@@ -44,11 +47,12 @@ export const Main = (props: Props) => {
     }
 
     useEffect(() => {
+        props.setShowNav(false);
         alarmGenerator();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
   return (
-    <div className="main">
+    <div className='main'>
         <Header alarms={alarms} ></Header>
         <Filter alarms={alarms} setAlarms={setAlarms} filterCriteria={filterCriteria} setFilterCriteria={setFilterCriteria}></Filter>
         <Alarms alarms={alarms} filterCriteria={filterCriteria} />

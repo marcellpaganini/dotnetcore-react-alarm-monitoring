@@ -2,12 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.css';
 
-type Props = {}
 
-export const Nav = (props: Props) => {
+export const Nav = () => {
   return (
     <div className="nav">
-        <span>📡</span>
+        <h2>📡</h2>
         <section className="links">
             <Link to='/signin'>Sign In</Link>
             <Link to='/register'>Register</Link>
