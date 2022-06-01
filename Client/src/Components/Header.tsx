@@ -1,14 +1,34 @@
-import React, { FC } from 'react'
+import React, { Dispatch, FC, SetStateAction, useState } from 'react'
+import { Navigate } from 'react-router-dom';
 import { IAlarm } from '../Types/IAlarm';
 import './Header.css';
-import logout from './logout.svg';
+import logoutImg from './logout.svg';
 
 interface IHeaderProps {
   alarms: IAlarm[],
-  name: string
+  name: string,
+  showNav: boolean,
+  setShowNav: Dispatch<SetStateAction<boolean>>
 }
 
 export const Header: FC<IHeaderProps> = (props: IHeaderProps) => {
+  const [redirect, setRedirect] = useState<boolean>(false);
+
+  const logout = async () => {
+    await fetch('http://localhost:8000/api/logout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/JSON' },
+      credentials: 'include'
+    });  
+    
+    setRedirect(true);
+    props.setShowNav(true);
+  }
+
+  if(redirect) {
+    return <Navigate to='/signin' />;
+  }
+
   return (
     <div className="header">
         <h1>📡</h1>
@@ -58,8 +78,8 @@ export const Header: FC<IHeaderProps> = (props: IHeaderProps) => {
         </section>
 
         <section className="logout">
-          <button className="btnLogout">
-            <img className="logout" src={logout} alt="logout"/>
+          <button className="btnLogout" onClick={logout}>
+            <img className="logout" src={logoutImg} alt="logout"/>
           </button>
         </section>
     </div>

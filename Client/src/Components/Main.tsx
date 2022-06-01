@@ -68,7 +68,7 @@ export const Main = (props: Props) => {
     }, [])
   return (
     <div className='main'>
-        <Header alarms={alarms} name={name}></Header>
+        <Header alarms={alarms} name={name} showNav={props.showNav} setShowNav={props.setShowNav}></Header>
         <Filter alarms={alarms} setAlarms={setAlarms} filterCriteria={filterCriteria} setFilterCriteria={setFilterCriteria}></Filter>
         <Alarms alarms={alarms} filterCriteria={filterCriteria} />
     </div>
