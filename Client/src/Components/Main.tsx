@@ -22,6 +22,7 @@ export const Main = (props: Props) => {
         vendor: "xxx",
         date: "xxx"
     });
+    const [name, setName] = useState<string>("");
     const alarmInfoList: IAlarmInfo[] = JSON.parse(JSON.stringify(mockData));
 
     const alarmGenerator = () => {
@@ -48,12 +49,26 @@ export const Main = (props: Props) => {
 
     useEffect(() => {
         props.setShowNav(false);
+
+        (
+            async () => {
+                const response = await fetch('http://localhost:8000/api/user', {
+                    headers: { 'Content-Type': 'application/JSON' },
+                    credentials: 'include',
+                });
+
+                const content = await response.json();
+
+                setName(content.userName);
+            }
+        )();
+
         alarmGenerator();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
   return (
     <div className='main'>
-        <Header alarms={alarms} ></Header>
+        <Header alarms={alarms} name={name}></Header>
         <Filter alarms={alarms} setAlarms={setAlarms} filterCriteria={filterCriteria} setFilterCriteria={setFilterCriteria}></Filter>
         <Alarms alarms={alarms} filterCriteria={filterCriteria} />
     </div>

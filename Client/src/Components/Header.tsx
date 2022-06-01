@@ -1,9 +1,11 @@
 import React, { FC } from 'react'
 import { IAlarm } from '../Types/IAlarm';
 import './Header.css';
+import logout from './logout.svg';
 
 interface IHeaderProps {
-  alarms: IAlarm[]
+  alarms: IAlarm[],
+  name: string
 }
 
 export const Header: FC<IHeaderProps> = (props: IHeaderProps) => {
@@ -51,7 +53,14 @@ export const Header: FC<IHeaderProps> = (props: IHeaderProps) => {
         </section>
 
         <section className="date">
-          {new Date().toLocaleDateString("en-US")}
+          {new Date().toLocaleDateString("en-US")} <br />
+          <span className="name">Hello, {props.name}</span>
+        </section>
+
+        <section className="logout">
+          <button className="btnLogout">
+            <img className="logout" src={logout} alt="logout"/>
+          </button>
         </section>
     </div>
   )
