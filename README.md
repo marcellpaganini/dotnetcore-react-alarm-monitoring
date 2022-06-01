@@ -26,6 +26,10 @@
   npm install --save luxon
   npm i --save-dev @types/luxon
   ```  
+  * Install React Router   
+  ```bash
+  npm i react-router-dom @types/react-router-dom
+  ```
   * Run the project and open http://localhost:3000
   ```bash
   npm start
@@ -76,6 +80,10 @@ dotnet add package Microsoft.AspNetCore.Cors --version 2.2.0
 ![alt text](https://www.ttgint.com/wp-content/uploads/2021/06/3-1.png)
 
 ### Error messages for future reference  
+❌Uncaught Error: A <Route> is only ever to be used as the child of <Routes> element, never rendered directly. Please wrap your <Route> in a <Routes>.   
+**Solution** All routes needs to be wrapped in <Routes>.    
+❌Type '{ path: string; component: (props: Props) => Element; }' is not assignable to type 'IntrinsicAttributes & (PathRouteProps | LayoutRouteProps | IndexRouteProps)'   
+**Solution** In React Router V6, use ```<Route path="/" element={<HomePage />} />```, instead of ```<Route path="/" component={HomePage}/>```   
 ❌Error: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type ''   
 **Solution** Use type assertion: ```element as keyof typeof object```.   
 ❌Uncaught TypeError: Cannot assign to read only property 'searchIsSet' of object '#<Object>'  
