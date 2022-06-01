@@ -137,6 +137,11 @@
     font-weight: 500;
 }
 
+img {
+    height: 3em;
+    width: 3em;
+}
+
 span.criticalNumber, span.warningNumber, span.majorNumber, span.minorNumber, span.activeTitle, span.activeCount {
     margin: 0;
 }
@@ -144,3 +149,25 @@ span.criticalNumber, span.warningNumber, span.majorNumber, span.minorNumber, spa
 span {
     margin: 0.2em;
 }
+
+.name {
+    font-weight: 400;
+}
+
+.logout {
+    margin-left: 1.5em;
+}
+
+.btnLogout, .btnLogout:hover {
+    all: unset;
+    box-shadow: 0.1em 0.1em 0.1em black;
+    padding: 0.5em 0.6em 0.3em 0em;
+    border-radius: 0.5em;
+    margin-left: 1em;
+}
+
+.btnLogout:hover {
+    cursor: pointer;
+    background-color: rgb(219, 219, 219);
+}
+
