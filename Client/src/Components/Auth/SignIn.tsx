@@ -8,7 +8,6 @@ export const SignIn = (props: Props) => {
   const [userName, setUserName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [redirect, setRedirect] = useState<boolean>(false);
-  const [name, setName] = useState<string>("");
   const [message, setMessage] = useState<string>("");
 
   const submit = async (e: SyntheticEvent) => {
@@ -24,11 +23,9 @@ export const SignIn = (props: Props) => {
       })
     });
 
-    const content = await response.json();
-    setName(content.userName);
-
-    if (name !== "") {
+    if (response.status === 200) {
       setRedirect(true);
+      setMessage("");
     } else {
       setMessage("Invalid user name or password.");
     }
