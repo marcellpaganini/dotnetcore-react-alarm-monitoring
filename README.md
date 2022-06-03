@@ -1,4 +1,4 @@
-# react-telecom-remote-monitoring    
+# dotnetcore-react-alarm-monitoring    
 
 ## Built With  
 * [MariaDB](https://mariadb.org/// "MariaDB Foundation")   
