@@ -22,13 +22,20 @@ namespace Server.Controllers
         [HttpPost("register")]
         public IActionResult Register(RegisterDto dto) 
         {
-            var user = new User 
+            if (!ModelState.IsValid) 
             {
-                UserName = dto.UserName ?? "",
-                Password = BCrypt.Net.BCrypt.HashPassword(dto.Password)
-            };
+                return BadRequest();
+            } 
+            else 
+            {
+                var user = new User 
+                {
+                    UserName = dto.UserName ?? "",
+                    Password = BCrypt.Net.BCrypt.HashPassword(dto.Password)
+                };
 
-            return Created("success", _repository.Create(user));
+                return Created("success", _repository.Create(user));
+            }
         }
 
         [HttpPost("login")]

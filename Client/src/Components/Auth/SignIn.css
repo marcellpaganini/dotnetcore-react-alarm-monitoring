@@ -50,3 +50,8 @@ button:hover {
 .error {
     color: red;
 }
+
+.validationInfo {
+    margin: 2em 3em;
+    font-size: x-small;
+}
