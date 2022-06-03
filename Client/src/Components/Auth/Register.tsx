@@ -22,12 +22,7 @@ export const Register = (props: Props) => {
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
 
-    if (!checkPassword(password) || userName.length < 2) {
-      setError("Registration requires: Password with at least 7 characters, uppercase, lowercase letter, number, special character and user name with at least 2 characters.");
-      return;
-    }
-
-    await fetch('http://localhost:8000/api/register', {
+    const response = await fetch('http://localhost:8000/api/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/JSON' },
       body: JSON.stringify({
@@ -35,6 +30,11 @@ export const Register = (props: Props) => {
         password
       })
     });
+
+    if (!checkPassword(password) || userName.length < 2 || response.status === 400) {
+      setError("Invalid password/user name.");
+      return;
+    }
 
     setRedirect(true);
   };
@@ -52,6 +52,7 @@ export const Register = (props: Props) => {
             <input type="password" placeholder="Password" required onChange={e => setPassword(e.target.value)}></input>
             <button type="submit">Submit</button>
             <span className="error">{error}</span>
+            <span className="validationInfo"><strong>Requirements:</strong> Password with at least 7 characters, uppercase, lowercase letter, number, special character and user name with at least 2 characters.</span>
           </form>
         </section>
       </div>   
