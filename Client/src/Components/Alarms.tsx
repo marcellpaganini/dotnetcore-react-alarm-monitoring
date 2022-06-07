@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { IAlarm } from '../Types/IAlarm';
 import { Severity, AlarmClass } from '../Types/Enums';
 import './Alarms.css';
 import { ISearchOptions } from '../Types/ISearchOptions';
 import { durationCounter, formatDuration } from '../Counter';
+import { Navigate } from 'react-router-dom';
 
 interface IAlarmsProps {
     alarms: IAlarm[],
@@ -11,6 +12,9 @@ interface IAlarmsProps {
 }
 
 export const Alarms: FC<IAlarmsProps> = (props) => {
+    const [redirect, setRedirect] = useState<boolean>(false);
+    const [cookieUser, setCookieUser] = useState<string>("");
+
     const handleSearchResults = (alarms: IAlarm[]): { id: any, name: any, severity: any, probableCause: any, vendor: any, alarmClass: any, firstReceiveDate: any, clearedDate: any, duration: any }[] => {
         var flatAlarms = alarms.map(({ id, name, alarmInfo: { severity, probableCause, vendor, alarmClass }, firstReceiveDate, clearedDate, duration }) =>
             ({ id, name, severity, probableCause, vendor, alarmClass, firstReceiveDate, clearedDate, duration }));
@@ -28,6 +32,29 @@ export const Alarms: FC<IAlarmsProps> = (props) => {
         } else {
             return filteredAlarms;
         }
+    }
+
+    useEffect(() => {
+        (
+          async () => {
+              const response = await fetch('http://localhost:8000/api/user', {
+                  headers: { 'Content-Type': 'application/JSON' },
+                  credentials: 'include',
+              });
+    
+              const content = await response.json();
+    
+              setCookieUser(content.userName);
+              if (cookieUser === undefined || response.status === 401) {
+                setRedirect(true);
+              }
+          }
+      )();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [])
+
+    if (redirect) {
+    return <Navigate to='/signin' />;
     }
 
     return (
