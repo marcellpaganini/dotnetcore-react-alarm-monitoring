@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from 'react';
+import React, { SyntheticEvent, useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import './SignIn.css';
 
@@ -9,6 +9,26 @@ export const SignIn = (props: Props) => {
   const [password, setPassword] = useState<string>("");
   const [redirect, setRedirect] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
+  const [cookieUser, setCookieUser] = useState<string>("");
+
+  useEffect(() => {
+    (
+      async () => {
+          const response = await fetch('http://localhost:8000/api/user', {
+              headers: { 'Content-Type': 'application/JSON' },
+              credentials: 'include',
+          });
+
+          const content = await response.json();
+
+          setCookieUser(content.userName);
+          if (cookieUser !== undefined && response.status !== 401) {
+            setRedirect(true);
+          }
+      }
+  )();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])  
 
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -31,9 +51,10 @@ export const SignIn = (props: Props) => {
     }
   };
 
-  if(redirect) {
+  if (redirect) {
     return <Navigate to='/main' />;
   }
+
   return (
     <div className="signIn"> 
       <section className="signInForm">
